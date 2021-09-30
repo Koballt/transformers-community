@@ -1,0 +1,220 @@
+
+@font-face {
+    font-family: "DNpro";
+    src: url(../font/DN\ PRO\ DN\ PRO\ MEDIUM.OTF);
+}
+
+
+
+/* header met login buttons en logo */
+
+body{
+    font-family: 'Noto Sans Display', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: auto;
+    background-color: #FE9060;
+}
+
+.header{
+    background-color: #ffffff;
+    color: #ffffff;
+    box-shadow: 0px 2px 9px 1px rgba(0,0,0,0.52);
+    position: fixed;
+    width: 100%;
+    z-index: 3;
+}
+
+.header ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow: hidden;
+    background-color: #ffffff;
+}
+
+.header ul a{
+    display: block;
+    padding: 20px;
+    border-left: 1px solid #aaa;
+    text-decoration: none;
+    background-color: #ffffff;
+    color: #000000;
+    text-decoration: none;
+}
+
+.header ul a:hover{
+    background-color: #696969;
+}
+
+.header ul a:active{
+    background-color: #696969;
+}
+
+
+body > header > div > button{
+    font-family: DNpro;
+    margin: 15px;
+    padding: 12px 50px;
+    background: #0089FA;
+    color: white;
+    border:  solid #0067BB;
+    border-radius: 8px 20px;    
+}
+
+
+.logo{
+    width: 300px;
+    height: auto;
+}
+
+button:hover {
+    background: #4F32F6;
+    
+}
+
+
+
+/* hier is de slide show met de menu */
+
+.section1{
+    /* background: #FE9060; */
+    background: linear-gradient(to left, #FE9060 10%, #D94708 90%);
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 37% 38% 25% ;
+    grid-template-areas: "slogun foto menu";
+}
+
+.slogun{
+    
+    grid-area: slogun;
+    height: 40vh;
+    margin: 30px;
+    color: white;
+    text-align: center;
+    
+}
+
+#trans{
+    width: 100%;
+    background: red;
+    animation: example 5s ;
+}
+
+@keyframes example {
+
+    from {background-color: red;}
+    to {background-color: blue;}
+  }
+
+
+.slogun > h1{
+    font-size: 70px;
+}
+
+.slogun > h4{
+    font-size: 26px;
+}
+
+.fotoslider{
+    background: gray;
+    grid-area: foto;
+    height: 40vh;
+    margin: 30px;
+}
+
+.section2{
+    background-color: black;
+}
+
+
+/* Menu voor mobiel*/
+
+.header .menu{
+    clear: both;
+    max-height: 0;
+    transition: max-height .2s ease-out;
+}
+
+.header .menu-icon{
+    padding: 28px 20px;
+    position: relative;
+    float: right;
+    cursor: pointer;
+}
+
+.header .menu-icon .nav-icon{
+    background: #333;
+    display: block;
+    height: 2px;
+    width: 18px;
+    position: relative;
+    transition:background .2s ease-out;
+}
+
+.header .menu-icon .nav-icon:before{
+    background:#333;
+    content:"";
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    transition: all .2s ease-out;
+    top: 5px;
+}
+
+.header .menu-icon .nav-icon:after{
+    background:#333;
+    content:"";
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    transition: all .2s ease-out;
+    top: -5px;
+}
+
+.header .menu-btn{
+    display: none;
+}
+
+.header .menu-btn:checked ~ .menu{
+    max-height: 600px;
+}
+
+.header .menu-btn:checked ~ .menu-icon .nav-icon{
+    background: transparent;
+    color: white;
+}
+
+.header .menu-btn:checked ~ .menu-icon .nav-icon:before{ 
+    transform: rotate(-45deg);
+    top:0;
+}
+
+.header .menu-btn:checked ~ .menu-icon .nav-icon:after{
+    transform: rotate(45deg);
+    top:0;
+}
+
+
+/* Menu voor desktop */
+
+@media (min-width:48em){
+    .header li{
+        float:left;
+    }
+    .header li a{
+        padding: 20px 30px;
+    }
+    .header .menu{
+        clear: none;
+        float:right;
+        max-height: none;
+    }
+    .header .menu-icon{
+        display: none;
+    }
+}
